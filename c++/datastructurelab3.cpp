@@ -29,7 +29,14 @@ void bubble_sort(int *num, int arraysize)
             }
         }
 }
-merge_sort
+void merge_sort(int num, int arraysize)
+{
+
+ 
+
+
+
+}
 int main()
 
 {
