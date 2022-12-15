@@ -29,7 +29,7 @@ void bubble_sort(int *num, int arraysize)
             }
         }
 }
-void merge_sort(int *num, int p, int q, int r)
+void merge(int *num, int p, int q, int r)
 {
     int n1 = q - p + 1;
     int n2 = r - q;
@@ -79,27 +79,40 @@ void merge_sort(int *num, int p, int q, int r)
         k++;
     }
 }
-
+void mergeSort(int *num, int l, int r)
+{
+    if (l < r)
+    {
+        int m = (l + r) / 2;
+        mergeSort(num, l, m);
+        mergeSort(num, m + 1, r);
+        merge(num, l, m, r);
+    }
+}
 int main()
 
 {
 
-    // int num[] = {1, 3, 2, 4, 7, 6, 5, 8, 10, 9};
+    int num[] = {1, 3, 2, 4, 7, 6, 5, 8, 10, 9};
 
-    // insertion_sort(num, 10);
-    // cout << "the answer for insertion_sort" << endl;
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     cout << num[i] << endl;
-    // }
-    // cout << "the answer for bubble_sort" << endl;
-    // bubble_sort(num, 10);
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     cout << num[i] << endl;
-    // }
+    insertion_sort(num, 10);
+    cout << "the answer for insertion_sort" << endl;
+    for (int i = 0; i < 10; i++)
+    {
+        cout << num[i] << endl;
+    }
     cout << "the answer for bubble_sort" << endl;
-    
+    bubble_sort(num, 10);
+    for (int i = 0; i < 10; i++)
+    {
+        cout << num[i] << endl;
+    }
+    cout << "the answer for merge_sort" << endl;
+    mergeSort(num, 0, 9);
+    for (int i = 0; i < 10; i++)
+    {
+        cout << num[i] << endl;
+    }
 
     return 0;
 }
