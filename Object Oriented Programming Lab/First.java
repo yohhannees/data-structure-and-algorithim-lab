@@ -1,6 +1,7 @@
 import java.text.Format;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 import javax.lang.model.element.Name;
 
@@ -49,10 +50,12 @@ class First {
 
 
 
-public static void car_list(){
+
+ArrayList<Car> cars = new ArrayList<Car>();
 
 
-}
+
+
 
 public static void add_car(){
  Scanner scan = new Scanner(System.in);
@@ -64,13 +67,13 @@ public static void add_car(){
   int price = scan.nextInt();
   
 }
-public void display_car(){
+public static void display_car(){
   System.out.println("Name of the car is "+name);
   System.out.println("Model of the car is "+model);
   System.out.println("Price of the car is "+price);
 }
 public static void main(String[] args) {
-  cars_insert();
-  car_display();
+ add_car();
+ display_car();
 }
 }
