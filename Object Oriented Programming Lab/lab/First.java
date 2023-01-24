@@ -1,3 +1,4 @@
+package lab;
 import java.text.Format;
 import java.util.Random;
 import java.util.Scanner;

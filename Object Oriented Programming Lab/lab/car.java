@@ -1,3 +1,4 @@
+package lab;
 public class car {
 
     car(String name, String model, int price) {
