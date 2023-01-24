@@ -1,9 +1,7 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-
-
-//binary search tree
+// binary search tree
 struct node
 {
     int key;
@@ -18,7 +16,6 @@ struct node *newNode(int item)
     temp->left = temp->right = NULL;
     return temp;
 }
-
 
 struct node *insert(struct node *node, int key)
 {
@@ -39,26 +36,48 @@ struct node *insert(struct node *node, int key)
     return node;
 }
 
-
-struct node *deleteNode(struct node *node, int key)
+// delete a node
+struct node *deleteNode(struct node *root, int key)
 {
-    if (node == NULL)
+    // base case
+    if (root == NULL)
     {
-        return NULL;
+        return root;
     }
-    if (key < node->key)
+
+    if (key < root->key)
     {
-        node->left = deleteNode(node->left, key);
+        root->left = deleteNode(root->left, key);
     }
-    else if (key > node->key)
+
+    else if (key > root->key)
     {
-        node->right = deleteNode(node->right, key);
+        root->right = deleteNode(root->right, key);
     }
+
     else
     {
-        return deleteNode(node);
+
+        if (root->left == NULL)
+        {
+            struct node *temp = root->right;
+            free(root);
+            return temp;
+        }
+        else if (root->right == NULL)
+        {
+            struct node *temp = root->left;
+            free(root);
+            return temp;
+        }
+
+        struct node *temp = minValueNode(root->right);
+
+        root->key = temp->key;
+
+        root->right = deleteNode(root->right, temp->key);
     }
-    return node;
+    return root;
 }
 struct node *search(struct node *node, int key)
 {
@@ -76,9 +95,8 @@ struct node *search(struct node *node, int key)
     }
 }
 
-int main ()
+int main()
 {
 
-return 0;
-
+    return 0;
 }
