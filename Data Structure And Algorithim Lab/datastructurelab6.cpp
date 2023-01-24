@@ -36,6 +36,20 @@ struct node *insert(struct node *node, int key)
     return node;
 }
 
+
+//min value node
+struct node *minValueNode(struct node *node)
+{
+    struct node *current = node;
+
+    while (current && current->left != NULL)
+    {
+        current = current->left;
+    }
+
+    return current;
+}
+
 // delete a node
 struct node *deleteNode(struct node *root, int key)
 {
